@@ -1,0 +1,8 @@
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/bin/Debug/net8.0/.msCoverageSourceRootsMapping_Domain.Tests
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/bin/Debug/net8.0/CoverletSourceRootsMapping_Domain.Tests
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/obj/Debug/net8.0/Domain.Tests.csproj.AssemblyReference.cache
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/obj/Debug/net8.0/Domain.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/obj/Debug/net8.0/Domain.Tests.AssemblyInfoInputs.cache
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/obj/Debug/net8.0/Domain.Tests.AssemblyInfo.cs
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/obj/Debug/net8.0/Domain.Tests.csproj.CoreCompileInputs.cache
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Iam/Domain.Tests/obj/Debug/net8.0/Domain.Tests.sourcelink.json
