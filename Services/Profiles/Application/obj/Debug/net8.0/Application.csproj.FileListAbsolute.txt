@@ -1,0 +1,16 @@
+/app/Services/Profiles/Application/bin/Debug/net8.0/Application.deps.json
+/app/Services/Profiles/Application/bin/Debug/net8.0/Application.dll
+/app/Services/Profiles/Application/bin/Debug/net8.0/Application.pdb
+/app/Services/Profiles/Application/bin/Debug/net8.0/Domain.dll
+/app/Services/Profiles/Application/bin/Debug/net8.0/Domain.pdb
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.AssemblyInfo.cs
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.sourcelink.json
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.csproj.CopyComplete
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.dll
+/app/Services/Profiles/Application/obj/Debug/net8.0/refint/Application.dll
+/app/Services/Profiles/Application/obj/Debug/net8.0/Application.pdb
+/app/Services/Profiles/Application/obj/Debug/net8.0/ref/Application.dll

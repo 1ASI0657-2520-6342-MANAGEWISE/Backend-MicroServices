@@ -1,0 +1,12 @@
+/app/Services/Profiles/Domain/bin/Debug/net8.0/Domain.deps.json
+/app/Services/Profiles/Domain/bin/Debug/net8.0/Domain.dll
+/app/Services/Profiles/Domain/bin/Debug/net8.0/Domain.pdb
+/app/Services/Profiles/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/app/Services/Profiles/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
+/app/Services/Profiles/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
+/app/Services/Profiles/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/app/Services/Profiles/Domain/obj/Debug/net8.0/Domain.sourcelink.json
+/app/Services/Profiles/Domain/obj/Debug/net8.0/Domain.dll
+/app/Services/Profiles/Domain/obj/Debug/net8.0/refint/Domain.dll
+/app/Services/Profiles/Domain/obj/Debug/net8.0/Domain.pdb
+/app/Services/Profiles/Domain/obj/Debug/net8.0/ref/Domain.dll
