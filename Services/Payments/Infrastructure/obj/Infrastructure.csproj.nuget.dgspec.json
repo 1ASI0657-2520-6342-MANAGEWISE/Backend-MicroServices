@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Infrastructure/Infrastructure.csproj": {}
+    "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/Application.csproj": {
+    "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/Application.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/Application.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/obj/",
+        "projectPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj"
+              "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj"
               }
             }
           }
@@ -41,8 +43,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -77,26 +78,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj": {
+    "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/obj/",
+        "projectPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -114,8 +117,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -136,37 +138,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Infrastructure/Infrastructure.csproj": {
+    "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Infrastructure/Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Infrastructure/Infrastructure.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Infrastructure/obj/",
+        "projectPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/Application.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/Application.csproj"
+              "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Application\\Application.csproj"
               },
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj"
+              "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\Pictures\\Backend-MicroServices (1)\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj"
               }
             }
           }
@@ -180,8 +184,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -200,6 +203,10 @@
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
               "version": "[8.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[10.0.0, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
@@ -222,7 +229,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

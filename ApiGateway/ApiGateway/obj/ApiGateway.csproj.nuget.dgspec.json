@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\\ApiGateway.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
         "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
         "outputPath": "D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\\obj\\",
+=======
+    "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj": {}
+  },
+  "projects": {
+    "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+        "projectName": "ApiGateway",
+        "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+        "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+        "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\obj\\",
+>>>>>>> Stashed changes
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,6 +65,10 @@
             "Ocelot.Provider.Consul": {
               "target": "Package",
               "version": "[24.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.7.0, )"
             }
           },
           "imports": [

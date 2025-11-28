@@ -6,67 +6,58 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// 🟦 Services
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
     {
-        Title = "Task",
+        Title = "Tasks",
         Version = "v1",
         Description = "Task Endpoints for ManageWise."
     });
 });
 
 var app = builder.Build();
+
+// 🟦 DB
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<TasksDbContext>();
-    db.Database.Migrate(); 
-}
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    db.Database.Migrate();
 }
 
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapGet("/health", () => Results.Ok("Healthy"));
-
-// 🔹 Autorizar y mapear controladores
-app.UseAuthorization();
 app.MapControllers();
 
-// 🔹 Configuración de Consul
-var port = 5282; 
-var useHttps = false;
+// 🟦 Consul
+var port = int.Parse(builder.Configuration["ServicePort"] ?? "80");
+var serviceHost = builder.Configuration["ServiceHost"] ?? "tasks-service";
 
 var consulClient = new ConsulClient(config =>
 {
-    config.Address = new Uri("http://localhost:8500");
+    config.Address = new Uri("http://consul:8500");
 });
 
-// 🔹 Registro del servicio en Consul
 var registration = new AgentServiceRegistration()
 {
-    ID = $"task-service-{Guid.NewGuid()}",
-    Name = "task-service",
-    Address = "127.0.0.1",
+    ID = $"tasks-service-{Guid.NewGuid()}",
+    Name = "tasks-service",
+    Address = serviceHost,
     Port = port,
     Check = new AgentServiceCheck()
     {
-        HTTP = $"{(useHttps ? "https" : "http")}://127.0.0.1:{port}/health",
+        HTTP = $"http://{serviceHost}/health",
         Interval = TimeSpan.FromSeconds(10),
         Timeout = TimeSpan.FromSeconds(5),
-        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),
-        TLSSkipVerify = useHttps
+        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1)
     }
 };
 

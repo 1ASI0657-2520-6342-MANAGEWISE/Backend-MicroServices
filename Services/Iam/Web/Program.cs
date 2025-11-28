@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Consul;
 using Infrastructure;
 using Infrastructure.Persistence;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,45 +22,58 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// 🔹 Leer datos desde appsettings.json o variables de entorno Docker
+var serviceHost = builder.Configuration["ServiceHost"] ?? "iam-service";
+var servicePort = int.Parse(builder.Configuration["ServicePort"] ?? "80");
+
+// -------------------------------------------------------------
+
 var app = builder.Build();
 
+// 🔹 Migraciones
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<IamDbContext>();
-    db.Database.Migrate(); // Applies any pending migrations
+    db.Database.Migrate();
 }
 
-app.UseSwagger();
-app.UseSwaggerUI();
+// 🔹 Swagger
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+// 🔹 Rutas
 app.MapControllers();
-
-var port = 5289;
-var useHttps = false;
-
 app.MapGet("/health", () => Results.Ok("Healthy"));
 
+// -------------------------------------------------------------
+// 🔹 Configurar Consul SIN localhost
 var consulClient = new ConsulClient(config =>
 {
-    config.Address = new Uri("http://localhost:8500");
+    config.Address = new Uri("http://consul:8500"); // << EL CONSUL DEL DOCKER COMPOSE
 });
 
+// Registro del servicio en Consul
 var registration = new AgentServiceRegistration()
 {
     ID = $"iam-service-{Guid.NewGuid()}",
     Name = "iam-service",
-    Address = "127.0.0.1",
-    Port = port,
+    Address = serviceHost,       // << nombre DNS dentro del docker compose
+    Port = servicePort,          // << puerto del contenedor
     Check = new AgentServiceCheck()
     {
-        HTTP = $"{(useHttps ? "https" : "http")}://127.0.0.1:{port}/health",
+        HTTP = $"http://{serviceHost}:{servicePort}/health",
         Interval = TimeSpan.FromSeconds(10),
         Timeout = TimeSpan.FromSeconds(5),
-        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1), // opcional
-        TLSSkipVerify = useHttps
+        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),
+        TLSSkipVerify = false
     }
 };
 
 await consulClient.Agent.ServiceRegister(registration);
+// -------------------------------------------------------------
 
 app.Run();
 

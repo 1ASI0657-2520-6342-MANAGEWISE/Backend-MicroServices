@@ -1,19 +1,16 @@
 using AidManager.Services.Payments.Application;
 using AidManager.Services.Payments.Infrastructure;
 using AidManager.Services.Payments.Infrastructure.Persistence;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Consul;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// 🟦 Services
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -27,23 +24,46 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// 🟦 DB Migration
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
 }
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+// Healthcheck
+app.MapGet("/health", () => Results.Ok("Healthy"));
 
-app.UseAuthorization();
-
+// Controllers
 app.MapControllers();
+
+// 🟦 Consul Configuration
+var port = int.Parse(builder.Configuration["ServicePort"] ?? "80");
+var serviceHost = builder.Configuration["ServiceHost"] ?? "payments-service";
+
+var consul = new ConsulClient(config =>
+{
+    config.Address = new Uri("http://consul:8500");
+});
+
+var registration = new AgentServiceRegistration()
+{
+    ID = $"payments-service-{Guid.NewGuid()}",
+    Name = "payments-service",
+    Address = serviceHost,
+    Port = port,
+    Check = new AgentServiceCheck()
+    {
+        HTTP = $"http://{serviceHost}/health",
+        Interval = TimeSpan.FromSeconds(10),
+        Timeout = TimeSpan.FromSeconds(5),
+        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),
+    }
+};
+
+await consul.Agent.ServiceRegister(registration);
 
 app.Run();

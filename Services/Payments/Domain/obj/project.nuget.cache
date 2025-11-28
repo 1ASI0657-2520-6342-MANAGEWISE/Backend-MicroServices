@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JnW1wUrLc7c=",
+  "dgSpecHash": "l2GaewtBZx4=",
   "success": true,
-  "projectFilePath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\valen\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.18\\microsoft.netcore.app.ref.8.0.18.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.18\\microsoft.windowsdesktop.app.ref.8.0.18.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.18\\microsoft.aspnetcore.app.ref.8.0.18.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,136 @@
+version: "3.9"
+
+services:
+
+  consul:
+    image: hashicorp/consul:1.17
+    container_name: consul
+    ports:
+      - "8500:8500"
+    command: "agent -dev -client=0.0.0.0"
+    networks:
+      - micro_net
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 2728NIje
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init-tables.sql:/docker-entrypoint-initdb.d/init-tables.sql
+    networks:
+      - micro_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p2728NIje"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  apigateway:
+    build:
+      context: .
+      dockerfile: ApiGateway/ApiGateway/Dockerfile
+    container_name: apigateway
+    ports:
+      - "7000:7000"
+    depends_on:
+      consul:
+        condition: service_started
+    environment:
+      - ASPNETCORE_URLS=http://+:7000
+    networks:
+      - micro_net
+
+  iam-service:
+    build:
+      context: .
+      dockerfile: Services/Iam/Web/Dockerfile
+    container_name: iam-service
+    depends_on:
+      mysql:
+        condition: service_healthy
+      consul:
+        condition: service_started
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ServiceHost=iam-service
+      - ServicePort=80
+      - ConnectionStrings__DefaultConnection=server=mysql;database=managewise_iam;user=root;password=2728NIje;
+    networks:
+      - micro_net
+    ports:
+      - "8001:80"
+
+  profiles-service:
+    build:
+      context: .
+      dockerfile: Services/Profiles/Web/Dockerfile
+    container_name: profiles-service
+    depends_on:
+      mysql:
+        condition: service_healthy
+      consul:
+        condition: service_started
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ServiceHost=profiles-service
+      - ServicePort=80
+      - ConnectionStrings__DefaultConnection=server=mysql;database=managewise_profiles;user=root;password=2728NIje;
+    networks:
+      - micro_net
+    ports:
+      - "8002:80"
+
+  payments-service:
+    build:
+      context: .
+      dockerfile: Services/Payments/Web/Dockerfile
+    container_name: payments-service
+    depends_on:
+      mysql:
+        condition: service_healthy
+      consul:
+        condition: service_started
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ServiceHost=payments-service
+      - ServicePort=80
+      - ConnectionStrings__DefaultConnection=server=mysql;database=managewise_payments;user=root;password=2728NIje;
+    networks:
+      - micro_net
+    ports:
+      - "8003:80"
+
+  tasks-service:
+    build:
+      context: .
+      dockerfile: Services/Tasks/Web/Dockerfile
+    container_name: tasks-service
+    depends_on:
+      mysql:
+        condition: service_healthy
+      consul:
+        condition: service_started
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ServiceHost=tasks-service
+      - ServicePort=80
+      - ConnectionStrings__DefaultConnection=server=mysql;database=managewise_tasks;user=root;password=2728NIje;
+    networks:
+      - micro_net
+    ports:
+      - "8004:80"
+
+volumes:
+  mysql_data:
+
+networks:
+  micro_net:

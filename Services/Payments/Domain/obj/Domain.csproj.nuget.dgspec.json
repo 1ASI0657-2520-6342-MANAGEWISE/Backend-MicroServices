@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj": {}
+    "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj": {
+    "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj",
+        "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/Domain.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Domain/obj/",
+        "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+        "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -54,12 +54,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\valen\\.dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
