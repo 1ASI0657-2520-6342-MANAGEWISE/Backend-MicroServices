@@ -19,7 +19,6 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
 
         public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            // TODO: Map CompanyName, CompanyEmail, CompanyCountry to a Company entity or handle as needed
             var user = new User
             {
                 FirstName = request.FirstName,
@@ -27,30 +26,33 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
                 Age = request.Age,
                 Email = request.Email,
                 Phone = request.Phone,
-                Password = request.Password, // Remember to hash the password
+                Password = request.Password, 
                 ProfileImg = request.ProfileImg,
                 Role = request.Role,
-                // CompanyId will be set based on CompanyName, CompanyEmail, CompanyCountry
-                // Or handle TeamRegisterCode if applicable for company association
+                
+                CompanyName = request.CompanyName,
+                CompanyEmail = request.CompanyEmail,
+                CompanyCountry = request.CompanyCountry,
+                TeamRegisterCode = request.TeamRegisterCode
             };
 
             await _unitOfWork.Users.AddAsync(user);
-            await _unitOfWork.CompleteAsync();
+            await _unitOfWork.CompleteAsync(); 
 
-            // TODO: Map User entity to UserDto, including Company details
             return new UserDto(
                 user.Id,
-                $"{user.FirstName ?? string.Empty} {user.LastName ?? string.Empty}",
+                $"{user.FirstName ?? string.Empty} {user.LastName ?? string.Empty}".Trim(),
                 user.Age,
                 user.Email ?? string.Empty,
                 user.Phone ?? string.Empty,
-                user.Password ?? string.Empty, // Should not return plain password
+                user.Password ?? string.Empty,
                 user.ProfileImg ?? string.Empty,
-                user.Role.ToString(), // Assuming Role is an enum or needs conversion
-                user.CompanyId,
-                request.CompanyName,
-                request.CompanyEmail,
-                request.CompanyCountry
+                user.Role.ToString(),
+                user.CompanyId,          
+                user.CompanyName,        
+                user.CompanyEmail,       
+                user.CompanyCountry,
+                user.TeamRegisterCode    
             );
         }
     }

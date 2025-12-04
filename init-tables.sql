@@ -1,3 +1,8 @@
+CREATE DATABASE IF NOT EXISTS managewise_iam;
+CREATE DATABASE IF NOT EXISTS managewise_profiles;
+CREATE DATABASE IF NOT EXISTS managewise_tasks;
+CREATE DATABASE IF NOT EXISTS managewise_payments;
+
 -- IAM Database (ya tiene tablas)
 USE managewise_iam;
 
@@ -5,26 +10,30 @@ USE managewise_iam;
 USE managewise_profiles;
 
 CREATE TABLE IF NOT EXISTS `Users` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `FirstName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `LastName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `Age` int NOT NULL,
-  `Email` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `Phone` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `Password` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `ProfileImg` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `CompanyId` int NOT NULL,
-  `Role` int NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `FirstName` longtext,
+    `LastName` longtext,
+    `Age` int NOT NULL,
+    `Email` longtext,
+    `Phone` longtext,
+    `Password` longtext,
+    `ProfileImg` longtext,
+    `CompanyName` longtext,
+    `CompanyEmail` longtext,
+    `CompanyCountry` longtext,
+    `CompanyId` int NOT NULL,
+    `Role` int NOT NULL,
+    `TeamRegisterCode` longtext,  
+    PRIMARY KEY (`Id`)
+    ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `DeletedUsers` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `DeletedAt` datetime(6) NOT NULL,
-  `DeletedBy` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `UserData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `DeletedAt` datetime(6) NOT NULL,
+    `DeletedBy` longtext,
+    `UserData` longtext,
+    PRIMARY KEY (`Id`)
+    ) ENGINE=InnoDB;
 
 -- Tasks Database
 USE managewise_tasks;

@@ -24,11 +24,22 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// 🟦 DB
+// 🟦 DB INITIALIZATION 
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<ProfilesDbContext>();
-    db.Database.Migrate();
+    var services = scope.ServiceProvider;
+    try 
+    {
+        var db = services.GetRequiredService<ProfilesDbContext>();
+        
+        
+        db.Database.EnsureCreated(); 
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while initializing the database.");
+    }
 }
 
 app.UseSwagger();

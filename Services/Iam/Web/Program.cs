@@ -6,6 +6,21 @@ using Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
+const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173") 
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
+});
+
+
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
@@ -22,11 +37,9 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// 🔹 Leer datos desde appsettings.json o variables de entorno Docker
 var serviceHost = builder.Configuration["ServiceHost"] ?? "iam-service";
 var servicePort = int.Parse(builder.Configuration["ServicePort"] ?? "80");
 
-// -------------------------------------------------------------
 
 var app = builder.Build();
 
@@ -44,15 +57,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// 🔹 CORS: Usar el middleware
+app.UseCors(MyAllowSpecificOrigins);
+
+
 // 🔹 Rutas
 app.MapControllers();
 app.MapGet("/health", () => Results.Ok("Healthy"));
 
-// -------------------------------------------------------------
-// 🔹 Configurar Consul SIN localhost
+
 var consulClient = new ConsulClient(config =>
 {
-    config.Address = new Uri("http://consul:8500"); // << EL CONSUL DEL DOCKER COMPOSE
+    config.Address = new Uri("http://consul:8500"); 
 });
 
 // Registro del servicio en Consul
@@ -60,8 +76,8 @@ var registration = new AgentServiceRegistration()
 {
     ID = $"iam-service-{Guid.NewGuid()}",
     Name = "iam-service",
-    Address = serviceHost,       // << nombre DNS dentro del docker compose
-    Port = servicePort,          // << puerto del contenedor
+    Address = serviceHost,       
+    Port = servicePort,          
     Check = new AgentServiceCheck()
     {
         HTTP = $"http://{serviceHost}:{servicePort}/health",
@@ -73,7 +89,5 @@ var registration = new AgentServiceRegistration()
 };
 
 await consulClient.Agent.ServiceRegister(registration);
-// -------------------------------------------------------------
 
 app.Run();
-

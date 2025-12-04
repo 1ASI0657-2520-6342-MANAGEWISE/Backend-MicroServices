@@ -12,6 +12,7 @@ namespace AidManager.API.Services.Profiles.Application.DTOs
         int CompanyId,
         string CompanyName,
         string CompanyEmail,
-        string CompanyCountry
+        string CompanyCountry,
+        string TeamRegisterCode
     );
 }

@@ -1,11 +1,27 @@
 {
   "Routes": [
+   
     {
-      "UpstreamPathTemplate": "/iam/{everything}",
-      "DownstreamPathTemplate": "/{everything}",
+      "UpstreamPathTemplate": "/users/sign-up",
+      "DownstreamPathTemplate": "/api/User/signup",
       "DownstreamHostAndPorts": [{ "Host": "iam-service", "Port": 80 }],
-      "UpstreamHttpMethod": ["GET","POST","PUT","DELETE","PATCH"]
+      "UpstreamHttpMethod": ["POST"]
     },
+
+    {
+      "UpstreamPathTemplate": "/authentication/sign-in",
+      "DownstreamPathTemplate": "/api/User/signin",
+      "DownstreamHostAndPorts": [{ "Host": "iam-service", "Port": 80 }],
+      "UpstreamHttpMethod": ["POST"]
+    },
+
+    {
+      "UpstreamPathTemplate": "/users/{everything}",
+      "DownstreamPathTemplate": "/api/User/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "iam-service", "Port": 80 }],
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE", "PATCH"] 
+    },
+    
     {
       "UpstreamPathTemplate": "/profiles/{everything}",
       "DownstreamPathTemplate": "/{everything}",

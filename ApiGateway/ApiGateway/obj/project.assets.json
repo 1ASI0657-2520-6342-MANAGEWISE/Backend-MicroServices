@@ -1023,19 +1023,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< Updated upstream
-      "projectUniqueName": "D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
-      "projectName": "ApiGateway",
-      "projectPath": "D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
-      "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
-      "outputPath": "D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\\obj\\",
-=======
       "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
       "projectName": "ApiGateway",
       "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
       "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
       "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\obj\\",
->>>>>>> Stashed changes
+      "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+      "projectName": "ApiGateway",
+      "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+      "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+      "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices (1)\\Backend-MicroServices\\ApiGateway\\ApiGateway\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
