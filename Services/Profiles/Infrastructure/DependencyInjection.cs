@@ -22,7 +22,6 @@ public static class DependencyInjection
             options.UseMySql(connectionString, serverVersion,
                 mySqlOptions =>
                 {
-                    
                     mySqlOptions.EnableRetryOnFailure(
                         maxRetryCount: 10, 
                         maxRetryDelay: TimeSpan.FromSeconds(30), 
@@ -32,6 +31,9 @@ public static class DependencyInjection
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IDeletedUserRepository, DeletedUserRepository>();
+        
+        services.AddScoped<ICompanyRepository, CompanyRepository>();
+
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;

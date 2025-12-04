@@ -36,9 +36,15 @@
     },
     {
       "UpstreamPathTemplate": "/tasks/{everything}",
-      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamHostAndPorts": [{ "Host": "tasks-service", "Port": 80 }],
-      "UpstreamHttpMethod": ["GET","POST","PUT","DELETE","PATCH"]
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
+    },
+    {
+      "UpstreamPathTemplate": "/collaborate/{everything}",
+      "DownstreamPathTemplate": "/api/{everything}", 
+      "DownstreamHostAndPorts": [{ "Host": "collaborate-service", "Port": 80 }],
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
     }
   ],
   "GlobalConfiguration": {

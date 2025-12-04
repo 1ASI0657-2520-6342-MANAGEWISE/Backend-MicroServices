@@ -4,22 +4,32 @@ using AidManager.Services.Payments.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace AidManager.Services.Payments.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            // Configure DbContext
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
+
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySql(configuration.GetConnectionString("DefaultConnection"),
-                    MySqlServerVersion.AutoDetect(configuration.GetConnectionString("DefaultConnection"))));
+            {
+                options.UseMySql(connectionString, serverVersion,
+                    mySqlOptions =>
+                    {
+                        mySqlOptions.EnableRetryOnFailure(
+                            maxRetryCount: 10,
+                            maxRetryDelay: TimeSpan.FromSeconds(30),
+                            errorNumbersToAdd: null);
+                    });
+            });
 
-            // Register Repositories
             services.AddScoped<IPaymentDetailRepository, PaymentDetailRepository>();
-            services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
-
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }

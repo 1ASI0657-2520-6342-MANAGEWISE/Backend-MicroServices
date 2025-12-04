@@ -7,6 +7,7 @@ namespace AidManager.API.Services.Profiles.Application.Interfaces
     {
         IUserRepository Users { get; }
         IDeletedUserRepository DeletedUsers { get; }
+        ICompanyRepository Companies { get; }
         Task<int> CompleteAsync();
     }
 }

@@ -11,6 +11,8 @@ namespace AidManager.API.Services.Profiles.Infrastructure.Persistence
 
         public DbSet<User> Users { get; set; }
         public DbSet<DeletedUser> DeletedUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {   

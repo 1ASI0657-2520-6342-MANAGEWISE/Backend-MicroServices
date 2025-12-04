@@ -7,14 +7,23 @@ namespace AidManager.API.Services.Profiles.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ProfilesDbContext _context;
+        
         public IUserRepository Users { get; }
         public IDeletedUserRepository DeletedUsers { get; }
+        
+        public ICompanyRepository Companies { get; }
 
-        public UnitOfWork(ProfilesDbContext context, IUserRepository userRepository, IDeletedUserRepository deletedUserRepository)
+        public UnitOfWork(
+            ProfilesDbContext context, 
+            IUserRepository userRepository, 
+            IDeletedUserRepository deletedUserRepository,
+            ICompanyRepository companyRepository) 
         {
             _context = context;
             Users = userRepository;
             DeletedUsers = deletedUserRepository;
+            
+            Companies = companyRepository;
         }
 
         public async Task<int> CompleteAsync()
