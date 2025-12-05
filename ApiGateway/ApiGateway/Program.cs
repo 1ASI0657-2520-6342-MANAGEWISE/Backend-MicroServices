@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-// CORS configurado para tus frontends locales
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
                 )
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .AllowCredentials(); // Solo si usas cookies o auth con credenciales
+                .AllowCredentials(); 
         });
 });
 
