@@ -19,8 +19,4 @@ WORKDIR /app
 # Copiamos los archivos publicados
 COPY --from=build /app .
 
-# 👇 IMPORTANTE: COPIAR LOS APPSETTINGS
-COPY Services/Profiles/Web/appsettings.json .
-COPY Services/Profiles/Web/appsettings.Development.json .
-
 ENTRYPOINT ["dotnet", "Web.dll"]
