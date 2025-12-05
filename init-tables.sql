@@ -28,13 +28,20 @@ CREATE TABLE IF NOT EXISTS `Users` (
     PRIMARY KEY (`Id`)
     ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS `DeletedUsers` (
-    `Id` int NOT NULL AUTO_INCREMENT,
-    `DeletedAt` datetime(6) NOT NULL,
-    `DeletedBy` longtext,
-    `UserData` longtext,
-    PRIMARY KEY (`Id`)
-    ) ENGINE=InnoDB;
+CREATE TABLE DeletedUsers (
+    Id int NOT NULL AUTO_INCREMENT,
+    FirstName longtext,
+    LastName longtext,
+    Age int NOT NULL,
+    Email longtext,
+    Phone longtext,
+    Password longtext,
+    ProfileImg longtext,
+    CompanyId int NOT NULL,
+    Role longtext,
+    DeletedAt datetime(6) NOT NULL,
+    PRIMARY KEY (Id)
+) ENGINE=InnoDB;
 
 CREATE TABLE `Companies` (
     `Id` int NOT NULL AUTO_INCREMENT,
