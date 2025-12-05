@@ -3,17 +3,17 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copiar csproj
-COPY Services/Profiles/Web/Web.csproj Services/Profiles/Web/
-COPY Services/Profiles/Application/Application.csproj Services/Profiles/Application/
-COPY Services/Profiles/Infrastructure/Infrastructure.csproj Services/Profiles/Infrastructure/
+COPY Services/Iam/Web/Web.csproj Services/Iam/Web/
+COPY Services/Iam/Application/Application.csproj Services/Iam/Application/
+COPY Services/Iam/Infrastructure/Infrastructure.csproj Services/Iam/Infrastructure/
 
-RUN dotnet restore Services/Profiles/Web/Web.csproj
+RUN dotnet restore Services/Iam/Web/Web.csproj
 
 # Copiar todo el repo
 COPY . .
 
 # Publicar
-RUN dotnet publish Services/Profiles/Web/Web.csproj -c Release -o /app
+RUN dotnet publish Services/Iam/Web/Web.csproj -c Release -o /app
 
 # ===== RUNTIME =====
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
