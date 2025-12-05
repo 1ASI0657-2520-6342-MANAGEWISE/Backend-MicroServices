@@ -1,57 +1,54 @@
 {
   "Routes": [
-   
     {
       "UpstreamPathTemplate": "/users/sign-up",
       "DownstreamPathTemplate": "/api/User/signup",
-      "DownstreamHostAndPorts": [{ "Host": "iam-service", "Port": 80 }],
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
       "UpstreamHttpMethod": ["POST"]
     },
-
     {
       "UpstreamPathTemplate": "/authentication/sign-in",
       "DownstreamPathTemplate": "/api/User/signin",
-      "DownstreamHostAndPorts": [{ "Host": "iam-service", "Port": 80 }],
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
       "UpstreamHttpMethod": ["POST"]
     },
-
     {
       "UpstreamPathTemplate": "/users/{everything}",
       "DownstreamPathTemplate": "/api/User/{everything}",
-      "DownstreamHostAndPorts": [{ "Host": "iam-service", "Port": 80 }],
-      "UpstreamHttpMethod": ["GET", "PUT", "DELETE", "PATCH"] 
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE", "PATCH"]
     },
-    
     {
       "UpstreamPathTemplate": "/profiles/{everything}",
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamHostAndPorts": [{ "Host": "profiles-service", "Port": 80 }],
-      "UpstreamHttpMethod": ["GET","POST","PUT","DELETE","PATCH"]
+      "DownstreamHostAndPorts": [{ "Host": "profiles-service-ym2u.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
     },
     {
       "UpstreamPathTemplate": "/payments/{everything}",
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamHostAndPorts": [{ "Host": "payments-service", "Port": 80 }],
-      "UpstreamHttpMethod": ["GET","POST","PUT","DELETE","PATCH"]
+      "DownstreamHostAndPorts": [{ "Host": "payments-service-vl2n.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
     },
     {
       "UpstreamPathTemplate": "/tasks/{everything}",
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamHostAndPorts": [{ "Host": "tasks-service", "Port": 80 }],
+      "DownstreamHostAndPorts": [{ "Host": "tasks-service-epti.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
       "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
     },
     {
       "UpstreamPathTemplate": "/collaborate/{everything}",
-      "DownstreamPathTemplate": "/api/{everything}", 
-      "DownstreamHostAndPorts": [{ "Host": "collaborate-service", "Port": 80 }],
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "collaborate-service.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
       "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
     }
   ],
-  "GlobalConfiguration": {
-    "ServiceDiscoveryProvider": {
-      "Host": "consul",
-      "Port": 8500,
-      "Type": "Consul"
-    }
-  }
+  "GlobalConfiguration": {}
 }
