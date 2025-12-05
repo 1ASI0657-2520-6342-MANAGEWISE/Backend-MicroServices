@@ -23,20 +23,24 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
             {
                 return null;
             }
-            // TODO: Map User entity to UserDto, including Company details
+
             return new UserDto(
                 user.Id,
-                $"{user.FirstName ?? string.Empty} {user.LastName ?? string.Empty}",
+                $"{user.FirstName ?? string.Empty} {user.LastName ?? string.Empty}".Trim(),
                 user.Age,
                 user.Email ?? string.Empty,
                 user.Phone ?? string.Empty,
-                "********", // Mask password
+                "********", 
                 user.ProfileImg ?? string.Empty,
-                user.Role.ToString(), // Assuming Role is an enum or needs conversion
+				user.Occupation ?? string.Empty, 
+    			user.Bio ?? string.Empty,
+                user.Role.ToString(), 
                 user.CompanyId,
-                "CompanyName", // Placeholder
-                "CompanyEmail", // Placeholder
-                "CompanyCountry" // Placeholder
+                
+                user.CompanyName ?? string.Empty,   
+                user.CompanyEmail ?? string.Empty,   
+                user.CompanyCountry ?? string.Empty,
+                user.TeamRegisterCode ?? string.Empty 
             );
         }
     }

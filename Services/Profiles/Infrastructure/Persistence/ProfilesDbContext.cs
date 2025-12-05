@@ -11,12 +11,16 @@ namespace AidManager.API.Services.Profiles.Infrastructure.Persistence
 
         public DbSet<User> Users { get; set; }
         public DbSet<DeletedUser> DeletedUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {   
             base.OnModelCreating(modelBuilder);
-            // Add any entity configurations here if needed
-            // Example: modelBuilder.Entity<User>().ToTable("Profiles_Users");
+            
+            modelBuilder.Entity<User>().ToTable("Users");
+
+            modelBuilder.Entity<DeletedUser>().ToTable("DeletedUsers");
         }
     }
 }

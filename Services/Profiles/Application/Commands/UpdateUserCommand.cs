@@ -11,5 +11,7 @@ namespace AidManager.API.Services.Profiles.Application.Commands
         string Phone,
         string ProfileImg,
         string Email,
+        string Occupation,
+        string Bio,
         string Password) : IRequest<UserDto?>;
 }

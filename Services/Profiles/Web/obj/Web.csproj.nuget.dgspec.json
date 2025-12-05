@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Web/Web.csproj": {}
+    "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Web\\Web.csproj": {}
   },
   "projects": {
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/Application.csproj": {
+    "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/Application.csproj",
+        "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/Application.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/obj/",
+        "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+        "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/Domain.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/Domain.csproj"
+              "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\Domain.csproj"
               }
             }
           }
@@ -68,26 +68,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\valen\\.dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/Domain.csproj": {
+    "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/Domain.csproj",
+        "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/Domain.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/obj/",
+        "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+        "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -127,26 +141,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\valen\\.dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Infrastructure/Infrastructure.csproj": {
+    "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Infrastructure/Infrastructure.csproj",
+        "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Infrastructure/Infrastructure.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Infrastructure/obj/",
+        "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+        "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -158,11 +186,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/Application.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/Application.csproj"
+              "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\Application.csproj": {
+                "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\Application.csproj"
               },
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/Domain.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Domain/Domain.csproj"
+              "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Domain\\Domain.csproj"
               }
             }
           }
@@ -217,26 +245,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\valen\\.dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Web/Web.csproj": {
+    "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Web/Web.csproj",
+        "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Web/Web.csproj",
-        "packagesPath": "/Users/richiabv/.nuget/packages/",
-        "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Web/obj/",
+        "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Web\\Web.csproj",
+        "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+        "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -248,11 +290,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/Application.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Application/Application.csproj"
+              "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\Application.csproj": {
+                "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Application\\Application.csproj"
               },
-              "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Infrastructure/Infrastructure.csproj": {
-                "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Profiles/Infrastructure/Infrastructure.csproj"
+              "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Profiles\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -273,6 +315,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Consul": {
+              "target": "Package",
+              "version": "[1.7.14.9, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.15, )"
@@ -299,6 +345,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -307,7 +371,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\valen\\.dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

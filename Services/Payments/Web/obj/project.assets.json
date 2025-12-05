@@ -2,6 +2,23 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "Consul/1.7.14.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Consul.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Consul.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1052,7 +1069,7 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/_._": {}
@@ -2154,6 +2171,21 @@
     }
   },
   "libraries": {
+    "Consul/1.7.14.9": {
+      "sha512": "PZD63GVWmIb5KcJL5NP5KZVAMREKBTL5mj9ra4Nm2vZeVjPlTkbFfLHxinEIB7BRzjyh/5V3P5RjrfJI52nocw==",
+      "type": "package",
+      "path": "consul/1.7.14.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "consul.1.7.14.9.nupkg.sha512",
+        "consul.nuspec",
+        "lib/net461/Consul.dll",
+        "lib/net461/Consul.xml",
+        "lib/netstandard2.0/Consul.dll",
+        "lib/netstandard2.0/Consul.xml"
+      ]
+    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -3229,10 +3261,10 @@
         "microsoft.codeanalysis.workspaces.common.nuspec"
       ]
     },
-    "Microsoft.CSharp/4.5.0": {
-      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
-      "path": "microsoft.csharp/4.5.0",
+      "path": "microsoft.csharp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3245,6 +3277,7 @@
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.3/Microsoft.CSharp.dll",
         "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
         "lib/portable-net45+win8+wp8+wpa81/_._",
         "lib/uap10.0.16299/_._",
         "lib/win8/_._",
@@ -3254,7 +3287,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
         "microsoft.csharp.nuspec",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
@@ -5251,6 +5284,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Application >= 1.0.0",
+      "Consul >= 1.7.14.9",
       "Infrastructure >= 1.0.0",
       "MediatR >= 11.1.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 11.1.0",
@@ -5261,19 +5295,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/richiabv/.nuget/packages/": {}
+    "C:\\Users\\valen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Web/Web.csproj",
+      "projectUniqueName": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Web/Web.csproj",
-      "packagesPath": "/Users/richiabv/.nuget/packages/",
-      "outputPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Web/obj/",
+      "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Web\\Web.csproj",
+      "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+      "outputPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/richiabv/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -5285,11 +5319,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/Application.csproj": {
-              "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Application/Application.csproj"
+            "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Application\\Application.csproj": {
+              "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Application\\Application.csproj"
             },
-            "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Infrastructure/Infrastructure.csproj": {
-              "projectPath": "/Users/richiabv/Downloads/AidManager-Microservices-main/Services/Payments/Infrastructure/Infrastructure.csproj"
+            "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\valen\\Descargas\\Backend-MicroServices\\Services\\Payments\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -5310,6 +5344,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Consul": {
+            "target": "Package",
+            "version": "[1.7.14.9, )"
+          },
           "MediatR": {
             "target": "Package",
             "version": "[11.1.0, )"
@@ -5348,6 +5386,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.18, 8.0.18]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.18, 8.0.18]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.18, 8.0.18]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.18, 8.0.18]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5356,7 +5412,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/richiabv/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\valen\\.dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

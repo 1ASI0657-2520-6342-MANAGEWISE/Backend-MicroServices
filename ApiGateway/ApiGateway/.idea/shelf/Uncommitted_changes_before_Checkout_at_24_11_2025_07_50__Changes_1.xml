@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_24_11_2025_07_50_[Changes]1" date="1764031850959" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2025_07_50_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 24/11/2025 07:50 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="ApiGateway/ApiGateway/obj/project.nuget.cache" />
+    <option name="AFTER_PATH" value="ApiGateway/ApiGateway/obj/project.nuget.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2025_07_50_[Changes]1/project.nuget.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.AssemblyInfoInputs.cache" />
+    <option name="AFTER_PATH" value="ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.AssemblyInfoInputs.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2025_07_50_[Changes]1/ApiGateway.AssemblyInfoInputs.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.assets.cache" />
+    <option name="AFTER_PATH" value="ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2025_07_50_[Changes]1/ApiGateway.assets.cache" />
+  </binary>
+</changelist>

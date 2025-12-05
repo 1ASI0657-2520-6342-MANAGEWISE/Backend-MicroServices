@@ -3,9 +3,23 @@ using Microsoft.EntityFrameworkCore;
 using Consul;
 using Infrastructure;
 using Infrastructure.Persistence;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
+
+const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173") 
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
+});
+
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -23,45 +37,30 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+var serviceHost = builder.Configuration["ServiceHost"] ?? "iam-service";
+var servicePort = int.Parse(builder.Configuration["ServicePort"] ?? "80");
+
+
 var app = builder.Build();
 
+// 🔹 Migraciones
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<IamDbContext>();
-    db.Database.Migrate(); // Applies any pending migrations
+    db.Database.Migrate();
 }
 
+// 🔹 Swagger
 app.UseSwagger();
 app.UseSwaggerUI();
+
+
+// 🔹 CORS: Usar el middleware
+app.UseCors(MyAllowSpecificOrigins);
+
+
+// 🔹 Rutas
 app.MapControllers();
-
-var port = 5289;
-var useHttps = false;
-
 app.MapGet("/health", () => Results.Ok("Healthy"));
 
-var consulClient = new ConsulClient(config =>
-{
-    config.Address = new Uri("http://localhost:8500");
-});
-
-var registration = new AgentServiceRegistration()
-{
-    ID = $"iam-service-{Guid.NewGuid()}",
-    Name = "iam-service",
-    Address = "127.0.0.1",
-    Port = port,
-    Check = new AgentServiceCheck()
-    {
-        HTTP = $"{(useHttps ? "https" : "http")}://127.0.0.1:{port}/health",
-        Interval = TimeSpan.FromSeconds(10),
-        Timeout = TimeSpan.FromSeconds(5),
-        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1), // opcional
-        TLSSkipVerify = useHttps
-    }
-};
-
-await consulClient.Agent.ServiceRegister(registration);
-
 app.Run();
-

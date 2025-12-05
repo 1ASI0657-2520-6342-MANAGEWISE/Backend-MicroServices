@@ -1,4 +1,4 @@
-using AidManager.API.Services.Profiles.Application.Interfaces;
+            using AidManager.API.Services.Profiles.Application.Interfaces;
 using AidManager.API.Services.Profiles.Domain.Entities;
 using AidManager.API.Services.Profiles.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -14,13 +14,16 @@ namespace AidManager.API.Services.Profiles.Infrastructure.Repositories
         public UserRepository(ProfilesDbContext context)
         {
             _context = context;
-        }
-
+        }       
+    
         public async Task<User?> GetByIdAsync(int id)
         {
             return await _context.Users.FindAsync(id);
         }
-
+        public async Task<User?> GetByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
         public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _context.Users.ToListAsync();

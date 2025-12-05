@@ -1,0 +1,12 @@
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/bin/Debug/net8.0/Domain.deps.json
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/bin/Debug/net8.0/Domain.dll
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/bin/Debug/net8.0/Domain.pdb
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/Domain.sourcelink.json
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/Domain.dll
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/refint/Domain.dll
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/Domain.pdb
+/Users/luisherrera/Documents/2025-coding-projects/by-upc/7mo-architectura-de-software/AidManager-Microservices/Services/Collaborate/Domain/obj/Debug/net8.0/ref/Domain.dll

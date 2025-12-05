@@ -1,62 +1,61 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
-      "ServiceName": "iam-service",
-      "UpstreamPathTemplate": "/iam/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
+      "UpstreamPathTemplate": "/users/sign-up",
+      "DownstreamPathTemplate": "/api/User/signup",
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["POST"]
     },
     {
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
-      "ServiceName": "collaborate-service",
-      "UpstreamPathTemplate": "/collaborate/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
+      "UpstreamPathTemplate": "/authentication/sign-in",
+      "DownstreamPathTemplate": "/api/User/signin",
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["POST"]
     },
     {
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
-      "ServiceName": "profiles-service",
+      "UpstreamPathTemplate": "/users/{everything}",
+      "DownstreamPathTemplate": "/api/User/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE", "PATCH"]
+    },
+    {
       "UpstreamPathTemplate": "/profiles/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "profiles-service-ym2u.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
     },
     {
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
-      "ServiceName": "payments-service",
       "UpstreamPathTemplate": "/payments/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "payments-service-vl2n.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
     },
     {
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
-      "ServiceName": "tasks-service",
       "UpstreamPathTemplate": "/tasks/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "tasks-service-epti.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
+    },
+    {
+      "UpstreamPathTemplate": "/collaborate/{everything}",
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "collaborate-service.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
+    },
+    {
+      "UpstreamPathTemplate": "/health",
+      "DownstreamPathTemplate": "/health",
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET"]
     }
   ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:9000",
-    "ServiceDiscoveryProvider": {
-      "Host": "localhost",
-      "Port": 8500,
-      "Type": "Consul"
-    }
-  }
+  "GlobalConfiguration": {}
 }

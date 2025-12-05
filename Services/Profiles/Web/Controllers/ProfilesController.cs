@@ -47,7 +47,17 @@ namespace AidManager.API.Services.Profiles.Web.Controllers
             }
             return Ok(user);
         }
-
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult<UserDto>> GetUserByEmail(string email)
+        {
+            var query = new GetUserByEmailQuery(email);
+            var user = await _mediator.Send(query);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
         [HttpPut("{id}")] // Assuming id from route is the UserId
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserCommand command)
         {

@@ -80,6 +80,15 @@ namespace Web.Controllers
             return Ok(result);
         }
 
+        [HttpPost("{projectId}/team")]
+        public async Task<IActionResult> AddTeamMember(int projectId, [FromBody] Application.Commands.AddTeamMemberCommand command)
+        {
+            if (projectId != command.ProjectId)
+                return BadRequest("ID mismatch");
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpPost("favorite")]
         public async Task<IActionResult> SaveProjectAsFavorite([FromBody] SaveProjectAsFavoriteCommand command)
         {

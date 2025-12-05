@@ -21,7 +21,7 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
             var user = await _unitOfWork.Users.GetByIdAsync(request.UserId);
             if (user == null)
             {
-                return null; // Or throw an exception
+                return null; 
             }
 
             user.FirstName = request.FirstName;
@@ -30,28 +30,37 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
             user.Phone = request.Phone;
             user.ProfileImg = request.ProfileImg;
             user.Email = request.Email;
+            user.Occupation = request.Occupation;
+    		user.Bio = request.Bio;
+
             if (!string.IsNullOrEmpty(request.Password))
             {
-                user.Password = request.Password; // Remember to hash the new password
+                user.Password = request.Password; 
             }
+
+          
 
             _unitOfWork.Users.Update(user);
             await _unitOfWork.CompleteAsync();
 
-            // TODO: Map User entity to UserDto, including Company details
             return new UserDto(
                 user.Id,
-                $"{user.FirstName ?? string.Empty} {user.LastName ?? string.Empty}",
+                $"{user.FirstName ?? string.Empty} {user.LastName ?? string.Empty}".Trim(),
                 user.Age,
                 user.Email ?? string.Empty,
                 user.Phone ?? string.Empty,
-                "********", // Mask password
+                "********", 
                 user.ProfileImg ?? string.Empty,
-                user.Role.ToString(), // Assuming Role is an enum or needs conversion
+				user.Occupation ?? string.Empty, 
+        		user.Bio ?? string.Empty,   
+                user.Role.ToString(), 
                 user.CompanyId,
-                "CompanyName", // Placeholder - fetch actual company name
-                "CompanyEmail", // Placeholder - fetch actual company email
-                "CompanyCountry" // Placeholder - fetch actual company country
+            
+                user.CompanyName ?? string.Empty, 
+                user.CompanyEmail ?? string.Empty, 
+                user.CompanyCountry ?? string.Empty,
+                
+                user.TeamRegisterCode ?? string.Empty 
             );
         }
     }

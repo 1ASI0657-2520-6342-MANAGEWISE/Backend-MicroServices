@@ -8,10 +8,13 @@ namespace AidManager.API.Services.Profiles.Application.DTOs
         string Phone,
         string Password,
         string ProfileImg,
+        string Occupation, 
+        string Bio,
         string Role,
         int CompanyId,
         string CompanyName,
         string CompanyEmail,
-        string CompanyCountry
+        string CompanyCountry,
+        string TeamRegisterCode
     );
 }

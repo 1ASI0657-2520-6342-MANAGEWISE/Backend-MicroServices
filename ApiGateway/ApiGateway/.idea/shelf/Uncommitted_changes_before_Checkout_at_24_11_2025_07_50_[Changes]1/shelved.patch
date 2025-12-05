@@ -1,0 +1,26 @@
+Index: ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.GeneratedMSBuildEditorConfig.editorconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>is_global = true\r\nbuild_property.TargetFramework = net8.0\r\nbuild_property.TargetPlatformMinVersion = \r\nbuild_property.UsingMicrosoftNETSdkWeb = true\r\nbuild_property.ProjectTypeGuids = \r\nbuild_property.InvariantGlobalization = \r\nbuild_property.PlatformNeutralAssembly = \r\nbuild_property.EnforceExtendedAnalyzerRules = \r\nbuild_property._SupportedPlatformList = Linux,macOS,Windows\r\nbuild_property.RootNamespace = ApiGateway\r\nbuild_property.RootNamespace = ApiGateway\r\nbuild_property.ProjectDir = D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\\\r\nbuild_property.EnableComHosting = \r\nbuild_property.EnableGeneratedComInterfaceComImportInterop = \r\nbuild_property.RazorLangVersion = 8.0\r\nbuild_property.SupportLocalizedComponentNames = \r\nbuild_property.GenerateRazorMetadataSourceChecksumAttributes = \r\nbuild_property.MSBuildProjectDirectory = D:\\valen\\Descargas\\VALENTINO\\funa\\ApiGateway\\ApiGateway\r\nbuild_property._RazorSourceGeneratorDebug = \r\nbuild_property.EffectiveAnalysisLevelStyle = 8.0\r\nbuild_property.EnableCodeStyleSeverity = \r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.GeneratedMSBuildEditorConfig.editorconfig b/ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.GeneratedMSBuildEditorConfig.editorconfig
+--- a/ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.GeneratedMSBuildEditorConfig.editorconfig	(revision 9af1b7a4140f158651d34fc0f126514e98bf0396)
++++ b/ApiGateway/ApiGateway/obj/Debug/net8.0/ApiGateway.GeneratedMSBuildEditorConfig.editorconfig	(date 1764031784738)
+@@ -9,13 +9,13 @@
+ build_property._SupportedPlatformList = Linux,macOS,Windows
+ build_property.RootNamespace = ApiGateway
+ build_property.RootNamespace = ApiGateway
+-build_property.ProjectDir = D:\valen\Descargas\VALENTINO\funa\ApiGateway\ApiGateway\
++build_property.ProjectDir = D:\valen\Descargas\Backend-MicroServices\ApiGateway\ApiGateway\
+ build_property.EnableComHosting = 
+ build_property.EnableGeneratedComInterfaceComImportInterop = 
+ build_property.RazorLangVersion = 8.0
+ build_property.SupportLocalizedComponentNames = 
+ build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+-build_property.MSBuildProjectDirectory = D:\valen\Descargas\VALENTINO\funa\ApiGateway\ApiGateway
++build_property.MSBuildProjectDirectory = D:\valen\Descargas\Backend-MicroServices\ApiGateway\ApiGateway
+ build_property._RazorSourceGeneratorDebug = 
+ build_property.EffectiveAnalysisLevelStyle = 8.0
+ build_property.EnableCodeStyleSeverity = 
