@@ -109,13 +109,16 @@ CREATE TABLE IF NOT EXISTS `FavoriteProjects` (
 -- Payments Database
 USE managewise_payments;
 
+-- Payments Database
+USE managewise_payments;
+
 CREATE TABLE IF NOT EXISTS `PaymentDetails` (
   `Id` int NOT NULL AUTO_INCREMENT,
-  `Amount` decimal(18,2) NOT NULL,
-  `Currency` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `Status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `TransactionDate` datetime(6) NOT NULL,
-  `Description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `UserId` int NOT NULL,
+  `CardHolderName` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CardNumber` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ExpirationDate` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CVV` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
