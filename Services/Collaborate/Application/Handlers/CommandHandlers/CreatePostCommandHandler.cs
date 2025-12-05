@@ -1,7 +1,7 @@
 using MediatR;
 using AidManager.Collaborate.Application.Commands;
 using AidManager.Collaborate.Application.DTOs;
-using AidManager.Collaborate.Application.Interfaces; // For IPostRepository
+using AidManager.Collaborate.Application.Interfaces; 
 using AidManager.Collaborate.Domain.Entities;
 using System;
 using System.Linq;
@@ -9,52 +9,60 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AidManager.Collaborate.Application.Handlers.CommandHandlers;
-
-public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, PostDto>
+namespace AidManager.Collaborate.Application.Handlers.CommandHandlers
 {
-    private readonly IPostRepository _postRepository;
-    // private readonly IUserRepository _userRepository; // For user details
-
-    public CreatePostCommandHandler(IPostRepository postRepository /*, IUserRepository userRepository*/)
+    public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, PostDto>
     {
-        _postRepository = postRepository;
-        // _userRepository = userRepository;
-    }
+        private readonly IPostRepository _postRepository;
+        private readonly IProfilesClient _profilesClient;
 
-    public async Task<PostDto> Handle(CreatePostCommand request, CancellationToken cancellationToken)
-    {
-        var post = new Post
+        public CreatePostCommandHandler(
+            IPostRepository postRepository,
+            IProfilesClient profilesClient)
         {
-            Title = request.Title,
-            Subject = request.Subject,
-            Description = request.Description,
-            CompanyId = request.CompanyId,
-            UserId = request.UserId,
-            CreatedAt = DateTime.UtcNow,
-            Rating = 0, // Initial rating
-            PostImages = request.Images.Select(url => new PostImage { ImageUrl = url }).ToList()
-        };
+            _postRepository = postRepository;
+            _profilesClient = profilesClient;
+        }
 
-        var createdPost = await _postRepository.AddAsync(post);
+        public async Task<PostDto> Handle(CreatePostCommand request, CancellationToken cancellationToken)
+        {
+            var post = new Post
+            {
+                Title = request.Title,
+                Subject = request.Subject,
+                Description = request.Description,
+                CompanyId = request.CompanyId,
+                UserId = request.UserId,
+                CreatedAt = DateTime.UtcNow,
+                Rating = 0, // Initial rating
+                PostImages = request.Images
+                    .Select(url => new PostImage { ImageUrl = url })
+                    .ToList()
+            };
 
-        // Fetch user details for UserName, UserImage, Email (placeholders for now)
-        // var user = await _userRepository.GetByIdAsync(createdPost.UserId);
+            var createdPost = await _postRepository.AddAsync(post);
 
-        return new PostDto(
-            createdPost.Id,
-            createdPost.Title,
-            createdPost.Subject,
-            createdPost.Description,
-            createdPost.CreatedAt,
-            createdPost.CompanyId,
-            createdPost.UserId,
-            "UserNamePlaceholder", // user?.Username ?? "N/A",
-            "UserImagePlaceholder.png", // user?.ProfileImageUrl ?? "N/A",
-            "user@example.com", // user?.Email ?? "N/A",
-            createdPost.Rating,
-            createdPost.PostImages.Select(img => img.ImageUrl).ToList(),
-            new List<CommentDto>() // Empty comments list initially
-        );
+            var user = await _profilesClient.GetUserByIdAsync(createdPost.UserId, cancellationToken);
+
+            var userName  = user?.Name       ?? "Unknown";
+            var userImage = user?.ProfileImg ?? "UserImagePlaceholder.png";
+            var email     = user?.Email      ?? string.Empty;
+
+            return new PostDto(
+                createdPost.Id,
+                createdPost.Title,
+                createdPost.Subject,
+                createdPost.Description,
+                createdPost.CreatedAt,
+                createdPost.CompanyId,
+                createdPost.UserId,
+                userName,
+                userImage,
+                email,
+                createdPost.Rating,
+                createdPost.PostImages.Select(img => img.ImageUrl).ToList(),
+                new List<CommentDto>() // Empty comments list initially
+            );
+        }
     }
 }

@@ -5,21 +5,24 @@ using AidManager.Collaborate.Application.Interfaces;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Generic; // For List<CommentDto>
+using System.Collections.Generic;
 
 namespace AidManager.Collaborate.Application.Handlers.QueryHandlers;
 
 public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, PostDto?>
 {
     private readonly IPostRepository _postRepository;
-    private readonly ICommentRepository _commentRepository; // To fetch comments
-    // private readonly IUserRepository _userRepository; // For user details
+    private readonly ICommentRepository _commentRepository;
+    private readonly IProfilesClient _profilesClient;
 
-    public GetPostByIdQueryHandler(IPostRepository postRepository, ICommentRepository commentRepository /*, IUserRepository userRepository*/)
+    public GetPostByIdQueryHandler(
+        IPostRepository postRepository,
+        ICommentRepository commentRepository,
+        IProfilesClient profilesClient)
     {
         _postRepository = postRepository;
         _commentRepository = commentRepository;
-        // _userRepository = userRepository;
+        _profilesClient = profilesClient;
     }
 
     public async Task<PostDto?> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
@@ -27,14 +30,25 @@ public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, PostDto
         var post = await _postRepository.GetByIdAsync(request.Id);
         if (post == null) return null;
 
+        // 🔹 Comentarios (por ahora con placeholders de usuario)
         var comments = await _commentRepository.GetByPostIdAsync(post.Id);
         var commentDtos = comments.Select(c => new CommentDto(
-            c.Id, c.Content, c.UserId,
-            "UserNamePlaceholder", "user@example.com", "userimage.png", // Placeholders
-            c.PostId, c.TimeOfComment)).ToList();
+            c.Id,
+            c.Content,
+            c.UserId,
+            "UserNamePlaceholder",     // TODO: si quieres, también puedes llamar a Profiles aquí
+            "user@example.com",
+            "userimage.png",
+            c.PostId,
+            c.TimeOfComment
+        )).ToList();
 
-        // Fetch user details (placeholders)
-        // var author = await _userRepository.GetByIdAsync(post.UserId);
+        // 🔹 Datos del autor desde Profiles
+        var user = await _profilesClient.GetUserByIdAsync(post.UserId, cancellationToken);
+
+        var userName  = user?.Name       ?? "AuthorName";
+        var userImage = user?.ProfileImg ?? "AuthorImage.png";
+        var email     = user?.Email      ?? "author@example.com";
 
         return new PostDto(
             post.Id,
@@ -44,9 +58,9 @@ public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, PostDto
             post.CreatedAt,
             post.CompanyId,
             post.UserId,
-            "AuthorNamePlaceholder", // author?.Username ?? "N/A",
-            "AuthorImage.png", // author?.ProfileImageUrl ?? "N/A",
-            "author@example.com", // author?.Email ?? "N/A",
+            userName,
+            userImage,
+            email,
             post.Rating,
             post.PostImages.Select(img => img.ImageUrl).ToList(),
             commentDtos
