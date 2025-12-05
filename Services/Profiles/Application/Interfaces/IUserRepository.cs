@@ -8,6 +8,8 @@ namespace AidManager.API.Services.Profiles.Application.Interfaces
     {
         Task<User?> GetByIdAsync(int id);
         Task<IEnumerable<User>> GetAllAsync();
+        Task<User?> GetByEmailAsync(string email);
+
         Task AddAsync(User user);
         void Update(User user);
         void Remove(User user);
