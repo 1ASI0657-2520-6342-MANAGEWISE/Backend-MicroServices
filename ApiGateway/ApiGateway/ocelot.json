@@ -48,6 +48,13 @@
       "DownstreamHostAndPorts": [{ "Host": "collaborate-service.onrender.com", "Port": 443 }],
       "DownstreamScheme": "https",
       "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE", "PATCH"]
+    },
+    {
+      "UpstreamPathTemplate": "/health",
+      "DownstreamPathTemplate": "/health",
+      "DownstreamHostAndPorts": [{ "Host": "iam-service-64q9.onrender.com", "Port": 443 }],
+      "DownstreamScheme": "https",
+      "UpstreamHttpMethod": ["GET"]
     }
   ],
   "GlobalConfiguration": {}
