@@ -51,11 +51,9 @@ using (var scope = app.Services.CreateScope())
 }
 
 // 🔹 Swagger
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 // 🔹 CORS: Usar el middleware
 app.UseCors(MyAllowSpecificOrigins);
@@ -64,30 +62,5 @@ app.UseCors(MyAllowSpecificOrigins);
 // 🔹 Rutas
 app.MapControllers();
 app.MapGet("/health", () => Results.Ok("Healthy"));
-
-
-var consulClient = new ConsulClient(config =>
-{
-    config.Address = new Uri("http://consul:8500"); 
-});
-
-// Registro del servicio en Consul
-var registration = new AgentServiceRegistration()
-{
-    ID = $"iam-service-{Guid.NewGuid()}",
-    Name = "iam-service",
-    Address = serviceHost,       
-    Port = servicePort,          
-    Check = new AgentServiceCheck()
-    {
-        HTTP = $"http://{serviceHost}:{servicePort}/health",
-        Interval = TimeSpan.FromSeconds(10),
-        Timeout = TimeSpan.FromSeconds(5),
-        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),
-        TLSSkipVerify = false
-    }
-};
-
-await consulClient.Agent.ServiceRegister(registration);
 
 app.Run();
