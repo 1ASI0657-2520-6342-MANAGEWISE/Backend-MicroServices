@@ -23,6 +23,8 @@ var app = builder.Build();
 
 app.UseCors("_myAllowSpecificOrigins");
 
+app.MapGet("/health", () => Results.Ok("Healthy"));
+
 await app.UseOcelot();
 
 app.Run();
