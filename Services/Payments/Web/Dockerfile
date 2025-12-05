@@ -2,25 +2,23 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiamos solo el proyecto primero (para cache más rápida)
+# Copiar csproj
 COPY Services/Payments/Web/Web.csproj Services/Payments/Web/
+COPY Services/Payments/Application/Application.csproj Services/Payments/Application/
+COPY Services/Payments/Infrastructure/Infrastructure.csproj Services/Payments/Infrastructure/
+
 RUN dotnet restore Services/Payments/Web/Web.csproj
 
-# Copiamos TODO
+# Copiar todo el repo
 COPY . .
 
-# Publicamos
+# Publicar
 RUN dotnet publish Services/Payments/Web/Web.csproj -c Release -o /app
 
 # ===== RUNTIME =====
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-# Copiamos los archivos publicados
 COPY --from=build /app .
-
-# 👇 IMPORTANTE: COPIAR LOS APPSETTINGS
-COPY Services/Payments/Web/appsettings.json .
-COPY Services/Payments/Web/appsettings.Development.json .
 
 ENTRYPOINT ["dotnet", "Web.dll"]

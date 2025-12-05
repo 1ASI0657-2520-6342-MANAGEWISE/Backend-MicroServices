@@ -2,7 +2,7 @@ using AidManager.Services.Payments.Application;
 using AidManager.Services.Payments.Infrastructure;
 using AidManager.Services.Payments.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Consul;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,30 +49,5 @@ app.MapGet("/health", () => Results.Ok("Healthy"));
 // Controllers
 app.MapControllers();
 
-// 🟦 Consul Configuration
-var port = int.Parse(builder.Configuration["ServicePort"] ?? "80");
-var serviceHost = builder.Configuration["ServiceHost"] ?? "payments-service";
-
-var consul = new ConsulClient(config =>
-{
-    config.Address = new Uri("http://consul:8500");
-});
-
-var registration = new AgentServiceRegistration()
-{
-    ID = $"payments-service-{Guid.NewGuid()}",
-    Name = "payments-service",
-    Address = serviceHost,
-    Port = port,
-    Check = new AgentServiceCheck()
-    {
-        HTTP = $"http://{serviceHost}/health",
-        Interval = TimeSpan.FromSeconds(10),
-        Timeout = TimeSpan.FromSeconds(5),
-        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),
-    }
-};
-
-await consul.Agent.ServiceRegister(registration);
 
 app.Run();
