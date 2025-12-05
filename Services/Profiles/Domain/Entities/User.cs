@@ -10,6 +10,8 @@ namespace AidManager.API.Services.Profiles.Domain.Entities
                 public string? Phone { get; set; }
                 public string? Password { get; set; }
                 public string? ProfileImg { get; set; }
+                public string? Occupation { get; set; }
+                public string? Bio { get; set; }
                 public string? CompanyName { get; set; }
                 public string? CompanyEmail { get; set; }
                 public string? CompanyCountry { get; set; }

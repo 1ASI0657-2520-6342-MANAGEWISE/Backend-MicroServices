@@ -100,6 +100,8 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
                 user.Phone ?? string.Empty,
                 user.Password ?? string.Empty,
                 user.ProfileImg ?? string.Empty,
+				user.Occupation ?? string.Empty,
+    			user.Bio ?? string.Empty,
                 user.Role.ToString(),
                 
                 user.CompanyId,          

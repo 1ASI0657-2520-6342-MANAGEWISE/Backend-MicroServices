@@ -18,7 +18,9 @@ CREATE TABLE IF NOT EXISTS `Users` (
     `Email` longtext,
     `Phone` longtext,
     `Password` longtext,
-    `ProfileImg` longtext,
+    `ProfileImg` longtext
+    `Occupation` longtext,
+    `Bio` longtext,
     `CompanyName` longtext,
     `CompanyEmail` longtext,
     `CompanyCountry` longtext,

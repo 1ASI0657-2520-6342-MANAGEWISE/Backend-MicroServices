@@ -30,7 +30,9 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
             user.Phone = request.Phone;
             user.ProfileImg = request.ProfileImg;
             user.Email = request.Email;
-            
+            user.Occupation = request.Occupation;
+    		user.Bio = request.Bio;
+
             if (!string.IsNullOrEmpty(request.Password))
             {
                 user.Password = request.Password; 
@@ -49,9 +51,11 @@ namespace AidManager.API.Services.Profiles.Application.Handlers
                 user.Phone ?? string.Empty,
                 "********", 
                 user.ProfileImg ?? string.Empty,
+				user.Occupation ?? string.Empty, 
+        		user.Bio ?? string.Empty,   
                 user.Role.ToString(), 
                 user.CompanyId,
-                
+            
                 user.CompanyName ?? string.Empty, 
                 user.CompanyEmail ?? string.Empty, 
                 user.CompanyCountry ?? string.Empty,

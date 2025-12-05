@@ -8,6 +8,8 @@ namespace AidManager.API.Services.Profiles.Application.DTOs
         string Phone,
         string Password,
         string ProfileImg,
+        string Occupation, 
+        string Bio,
         string Role,
         int CompanyId,
         string CompanyName,
