@@ -3,28 +3,38 @@ using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
+const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+// CORS configurado para tus frontends locales
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("_myAllowSpecificOrigins",
+    options.AddPolicy(name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.AllowAnyOrigin()
+            policy.WithOrigins(
+                    "http://localhost:5173",
+                    "http://localhost:3000",
+                    "http://localhost:4200"
+                )
                 .AllowAnyHeader()
-                .AllowAnyMethod();
+                .AllowAnyMethod()
+                .AllowCredentials(); // Solo si usas cookies o auth con credenciales
         });
 });
 
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
-
 builder.Services.AddOcelot();
 
 var app = builder.Build();
 
-app.UseCors("_myAllowSpecificOrigins");
+// Usar CORS
+app.UseCors(MyAllowSpecificOrigins);
 
+// Endpoint de health check
 app.MapGet("/health", () => Results.Ok("Healthy"));
 
+// Ocelot middleware
 await app.UseOcelot();
 
 app.Run();
