@@ -24,16 +24,16 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// 🟦 DB INITIALIZATION 
+// 🟦 DB INITIALIZATION
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    try 
+    try
     {
         var db = services.GetRequiredService<ProfilesDbContext>();
-        
-        
-        db.Database.EnsureCreated(); 
+
+
+        db.Database.EnsureCreated();
     }
     catch (Exception ex)
     {

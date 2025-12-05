@@ -2,25 +2,24 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiamos solo el proyecto primero (para cache más rápida)
+# Copiar csproj
 COPY Services/Tasks/Web/Web.csproj Services/Tasks/Web/
+COPY Services/Tasks/Application/Application.csproj Services/Tasks/Application/
+COPY Services/Tasks/Infrastructure/Infrastructure.csproj Services/Tasks/Infrastructure/
+
 RUN dotnet restore Services/Tasks/Web/Web.csproj
 
-# Copiamos TODO
+# Copiar todo el repo
 COPY . .
 
-# Publicamos
+# Publicar
 RUN dotnet publish Services/Tasks/Web/Web.csproj -c Release -o /app
 
 # ===== RUNTIME =====
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-# Copiamos los archivos publicados
 COPY --from=build /app .
 
-# 👇 IMPORTANTE: COPIAR LOS APPSETTINGS
-COPY Services/Tasks/Web/appsettings.json .
-COPY Services/Tasks/Web/appsettings.Development.json .
-
 ENTRYPOINT ["dotnet", "Web.dll"]
+
